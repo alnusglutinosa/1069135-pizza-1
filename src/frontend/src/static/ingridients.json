@@ -1,0 +1,77 @@
+[
+  {
+    "id": 1,
+    "title": "Грибы",
+    "name": "mushrooms"
+  },
+  {
+    "id": 2,
+    "title": "Чеддер",
+    "name": "cheddar"
+  },
+  {
+    "id": 3,
+    "title": "Салями",
+    "name": "salami"
+  },
+  {
+    "id": 4,
+    "title": "Ветчина",
+    "name": "ham"
+  },
+  {
+    "id": 5,
+    "title": "Ананас",
+    "name": "ananas"
+  },
+  {
+    "id": 6,
+    "title": "Бекон",
+    "name": "bacon"
+  },
+  {
+    "id": 7,
+    "title": "Лук",
+    "name": "onion"
+  },
+  {
+    "id": 8,
+    "title": "Чили",
+    "name": "chile"
+  },
+  {
+    "id": 9,
+    "title": "Халапеньо",
+    "name": "jalapeno"
+  },
+  {
+    "id": 10,
+    "title": "Маслины",
+    "name": "olives"
+  },
+  {
+    "id": 11,
+    "title": "Томаты",
+    "name": "tomatoes"
+  },
+  {
+    "id": 12,
+    "title": "Лосось",
+    "name": "salmon"
+  },
+  {
+    "id": 13,
+    "title": "Моцарелла",
+    "name": "mozzarella"
+  },
+  {
+    "id": 14,
+    "title": "Пармезан",
+    "name": "parmesan"
+  },
+  {
+    "id": 15,
+    "title": "Блю чиз",
+    "name": "blue_cheese"
+  }
+]
