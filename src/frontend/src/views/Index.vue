@@ -28,27 +28,21 @@
               <h2 class="title title--small sheet__title">Выберите тесто</h2>
 
               <div class="sheet__content dough">
-                <label class="dough__input dough__input--light">
+                <label
+                  v-for="(dough, index) in typeDough"
+                  :key="dough.slug"
+                  class="dough__input"
+                  :class="`dough__input--${dough.slug}`"
+                >
                   <input
                     type="radio"
                     name="dought"
-                    value="light"
+                    :value="dough.slug"
                     class="visually-hidden"
-                    checked
+                    :checked="index === 0"
                   />
-                  <b>Тонкое</b>
-                  <span>Из твердых сортов пшеницы</span>
-                </label>
-
-                <label class="dough__input dough__input--large">
-                  <input
-                    type="radio"
-                    name="dought"
-                    value="large"
-                    class="visually-hidden"
-                  />
-                  <b>Толстое</b>
-                  <span>Из твердых сортов пшеницы</span>
+                  <b>{{ dough.name }}</b>
+                  <span>{{ dough.description }}</span>
                 </label>
               </div>
             </div>
@@ -59,33 +53,20 @@
               <h2 class="title title--small sheet__title">Выберите размер</h2>
 
               <div class="sheet__content diameter">
-                <label class="diameter__input diameter__input--small">
+                <label
+                  v-for="(size, index) in sizes"
+                  :key="size.slug"
+                  class="diameter__input"
+                  :class="`dough__input--${size.slug}`"
+                >
                   <input
                     type="radio"
                     name="diameter"
-                    value="small"
+                    :value="size.slug"
                     class="visually-hidden"
+                    :checked="index === 1"
                   />
-                  <span>23 см</span>
-                </label>
-                <label class="diameter__input diameter__input--normal">
-                  <input
-                    type="radio"
-                    name="diameter"
-                    value="normal"
-                    class="visually-hidden"
-                    checked
-                  />
-                  <span>32 см</span>
-                </label>
-                <label class="diameter__input diameter__input--big">
-                  <input
-                    type="radio"
-                    name="diameter"
-                    value="big"
-                    class="visually-hidden"
-                  />
-                  <span>45 см</span>
+                  <span>{{ size.name }}</span>
                 </label>
               </div>
             </div>
@@ -116,15 +97,15 @@
 
                   <ul class="ingridients__list">
                     <li
-                      v-for="ingridient in ingridients"
-                      :key="ingridient.id"
+                      v-for="ingredient in ingredients"
+                      :key="ingredient.slug"
                       class="ingridients__item"
                     >
                       <span
                         class="filling"
-                        :class="`filling--${ingridient.name}`"
+                        :class="`filling--${ingredient.slug}`"
                       >
-                        {{ ingridient.title }}
+                        {{ ingredient.name }}
                       </span>
 
                       <div class="counter counter--orange ingridients__counter">
@@ -191,12 +172,22 @@
   </div>
 </template>
 <script>
-import ingridients from "@/static/ingridients.json";
+import pizza from "@/static/pizza.json";
+import {
+  normalizeIngredient,
+  normalizeDough,
+  normalizeSize,
+} from "@/common/helpers";
+
 export default {
   name: "AppLayoutHeader",
   data() {
     return {
-      ingridients,
+      ingredients: pizza.ingredients.map((ingredient) =>
+        normalizeIngredient(ingredient)
+      ),
+      typeDough: pizza.dough.map((dough) => normalizeDough(dough)),
+      sizes: pizza.sizes.map((size) => normalizeSize(size)),
     };
   },
 };
