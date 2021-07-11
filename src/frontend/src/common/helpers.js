@@ -1,49 +1,109 @@
-const ingredientsSlug = {
-  Грибы: "mushrooms",
-  Чеддер: "cheddar",
-  Салями: "salami",
-  Ветчина: "ham",
-  Ананас: "ananas",
-  Бекон: "bacon",
-  Лук: "onion",
-  Чили: "chile",
-  Халапеньо: "jalapeno",
-  Маслины: "olives",
-  Томаты: "tomatoes",
-  Лосось: "salmon",
-  Моцарелла: "mozzarella",
-  Пармезан: "parmesan",
-  "Блю чиз": "blue_cheese",
-};
+const ingredientsSlug = [
+  {
+    name: "Грибы",
+    value: "mushrooms",
+  },
+  {
+    name: "Чеддер",
+    value: "cheddar",
+  },
+  {
+    name: "Салями",
+    value: "salami",
+  },
+  {
+    name: "Ветчина",
+    value: "ham",
+  },
+  {
+    name: "Ананас",
+    value: "ananas",
+  },
+  {
+    name: "Бекон",
+    value: "bacon",
+  },
+  {
+    name: "Лук",
+    value: "onion",
+  },
+  {
+    name: "Чили",
+    value: "chile",
+  },
+  {
+    name: "Халапеньо",
+    value: "jalapeno",
+  },
+  {
+    name: "Маслины",
+    value: "olives",
+  },
+  {
+    name: "Томаты",
+    value: "tomatoes",
+  },
+  {
+    name: "Лосось",
+    value: "salmon",
+  },
+  {
+    name: "Моцарелла",
+    value: "mozzarella",
+  },
+  {
+    name: "Пармезан",
+    value: "parmesan",
+  },
+  {
+    name: "Блю чиз",
+    value: "blue_cheese",
+  },
+];
 
-const doughSlug = {
-  Тонкое: "light",
-  Толстое: "large",
-};
+const doughSlug = [
+  {
+    name: "Тонкое",
+    value: "light",
+  },
+  {
+    name: "Толстое",
+    value: "large",
+  },
+];
 
-const doughSize = {
-  "23 см": "small",
-  "32 см": "normal",
-  "45 см": "big",
-};
+const doughSize = [
+  {
+    name: "23 см",
+    value: "small",
+  },
+  {
+    name: "32 см",
+    value: "normal",
+  },
+  {
+    name: "45 см",
+    value: "big",
+  },
+];
 
 export const normalizeIngredient = (ingredient) => {
   return {
     ...ingredient,
-    slug: ingredientsSlug[ingredient.name],
+    slug: ingredientsSlug.find((el) => el.name === ingredient.name).value,
   };
 };
 
 export const normalizeDough = (dough) => {
   return {
     ...dough,
-    slug: doughSlug[dough.name],
+    slug: doughSlug.find((el) => el.name === dough.name).value,
   };
 };
 
 export const normalizeSize = (size) => {
   return {
     ...size,
-    slug: doughSize[size.name],
+    slug: doughSize.find((el) => el.name === size.name).value,
   };
 };
